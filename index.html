@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's For Dinner</title>
+    <link rel="shortcut icon" href="imgs/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+  <body>
+
+    <header class="custom-navbar">
+      <input type="checkbox" id="nav-toggle" class="d-none" />
+
+      <div
+        class="container-fluid px-3 px-md-4 d-flex justify-content-between align-items-center">
+
+        <a href="#"
+          class="brand-link d-flex align-items-center gap-3 text-decoration-none">
+          <div class="brand-icon">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+          <div>
+            <h1 class="brand-title m-0">What's For Dinner</h1>
+            <p class="brand-subtitle m-0">Your daily meal inspiration</p>
+          </div>
+        </a>
+
+        <label for="nav-toggle" class="mobile-menu-btn d-lg-none m-0"
+          aria-label="Toggle Menu">
+          <i class="fa-solid fa-bars"></i>
+        </label>
+
+        <div class="nav-actions d-none d-lg-flex">
+          <button class="nav-icon-btn" aria-label="Bookmarks">
+            <i class="fa-solid fa-bookmark"></i>
+          </button>
+
+          <button class="nav-icon-btn" aria-label="History">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </button>
+
+          <button class="nav-icon-btn" aria-label="Settings">
+            <i class="fa-solid fa-gear"></i>
+          </button>
+
+          <div class="user-avatar-wrapper">
+            <img
+              src="imgs/WhatsApp Image 2026-10-13 at 1.29.11 PM.jpeg"
+              alt="Profile Avatar"
+              class="user-avatar" />
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mobile-menu-dropdown d-lg-none">
+        <ul class="list-unstyled mb-0 d-flex flex-column gap-3 pt-3 px-3 pb-2">
+          <li>
+            <a href="#" class="mobile-menu-link">
+              <i class="fa-solid fa-bookmark"></i>
+              <span>Saved Recipes</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="mobile-menu-link">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              <span>Recent</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="mobile-menu-link">
+              <i class="fa-solid fa-gear"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="mobile-menu-link">
+              <img
+                src="imgs/WhatsApp Image 2026-10-13 at 1.29.11 PM.jpeg"
+                alt="Profile"
+                class="mobile-user-avatar" />
+              <span>Profile</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <!-- //////////////////////////////////////////////////////////////////////////////////// -->
+    <main class="py-4 py-md-5">
+      <div class="m-auto" style="width: 90%;">
+        <div class="recipe-card">
+          <div class="row g-0">
+
+            <div class="col-lg-5">
+              <div class="recipe-image-wrapper">
+                <img id="recipe-img" src alt="Recipe Dish" class="recipe-img" />
+
+                <div class="rating-badge">
+                  <i class="fa-solid fa-star"></i>
+                  <span id="recipe-rating" class="rating-score">4.5</span>
+                  <span id="recipe-reviews" class="rating-count">(324
+                    reviews)</span>
+                </div>
+
+                <div class="quick-stats-card">
+                  <div class="stat-col">
+                    <i class="fa-solid fa-clock stat-icon stat-icon-orange"></i>
+                    <span class="stat-label">Prep Time</span>
+                    <span id="stat-prep" class="stat-val">15 min</span>
+                  </div>
+                  <div class="stat-col">
+                    <i class="fa-solid fa-fire stat-icon stat-icon-red"></i>
+                    <span class="stat-label">Cook Time</span>
+                    <span id="stat-cook" class="stat-val">15 min</span>
+                  </div>
+                  <div class="stat-col">
+                    <i
+                      class="fa-solid fa-user-group stat-icon stat-icon-blue"></i>
+                    <span class="stat-label">Servings</span>
+                    <span id="stat-servings" class="stat-val">4 people</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <div class="recipe-content">
+
+                <div
+                  class="d-flex justify-content-between align-items-start mb-2">
+                  <div class="d-flex gap-2" id="recipe-tags"></div>
+                  <div class="d-flex gap-2">
+                    <button class="card-action-btn"
+                      aria-label="Bookmark Recipe"><i
+                        class="fa-solid fa-bookmark"></i></button>
+                    <button class="card-action-btn" aria-label="Share Recipe"><i
+                        class="fa-solid fa-share-nodes"></i></button>
+                  </div>
+                </div>
+
+                <h2 id="recipe-title" class="recipe-title"></h2>
+                <p id="recipe-desc" class="recipe-desc"></p>
+
+                <div class="recipe-tabs">
+                  <button id="tab-btn-ingredients" class="tab-btn active"
+                    onclick="changeTab('ingredients')">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Ingredients</span>
+                  </button>
+                  <button id="tab-btn-instructions" class="tab-btn"
+                    onclick="changeTab('instructions')">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>Instructions</span>
+                  </button>
+                  <button id="tab-btn-nutrition" class="tab-btn"
+                    onclick="changeTab('nutrition')">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Nutrition</span>
+                  </button>
+                  <button id="tab-btn-tips" class="tab-btn"
+                    onclick="changeTab('tips')">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>Chef's Tips</span>
+                  </button>
+                </div>
+
+                <div class="tab-scroll-container">
+                  <div id="tab-content-area"></div>
+                </div>
+
+                <div class="pt-3">
+                  <button id="btn-next-recipe" class="try-recipe-btn"
+                    onclick="nextRecipe()">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                    <span>Try Another Recipe</span>
+                  </button>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
